@@ -1,0 +1,10 @@
+version: '2'
+plugins:
+  flake8:
+    enabled: true
+    channel: stable
+    config:
+      config: .flake8
+exclude_paths:
+  - tests/
+  - migrations/
