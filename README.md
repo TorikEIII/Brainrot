@@ -8,4 +8,4 @@ Brain Games — это консольное приложение с образо
 ---
 
 ## Демонстрация
-![Demo](document_52988397387849676411-ezgif.com-video-to-gif-converter.gif)
+![Demo](document_52988397387849676411-ezgif.com-optimize.gif)
