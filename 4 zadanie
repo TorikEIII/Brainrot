@@ -1,0 +1,53 @@
+import random
+
+def generate_geometric_progression():
+    length = random.randint(5, 10)
+    first_term = random.randint(1, 20)
+    ratio = random.randint(2, 5)
+    progression = [first_term]
+    for _ in range(1, length):
+        next_num = progression[-1] * ratio
+        progression.append(next_num)
+    return progression
+
+def hide_element(progression):
+    hidden_index = random.randint(0, len(progression) - 1)
+    return hidden_index
+
+def display_progression(progression, hidden_index):
+    display_list = []
+    for idx, num in enumerate(progression):
+        if idx == hidden_index:
+            display_list.append("..")
+        else:
+            display_list.append(str(num))
+    print("Question: " + " ".join(display_list))
+
+def main():
+    print("Welcome to the Brain Games!\n")
+    name = input("May I have your name? ")
+    print(f"Hello, {name}!\n")
+    print("What number is missing in the progression?\n")
+    
+    while True:
+        progression = generate_geometric_progression()
+        hidden_index = hide_element(progression)
+        display_progression(progression, hidden_index)
+        try:
+            user_input = input("Your answer: ").strip()
+            answer = int(user_input)
+        except ValueError:
+            print("Please enter a valid integer.")
+            continue
+
+        correct_number = progression[hidden_index]
+        if answer == correct_number:
+            print("Correct!\n")
+            print(f"Congratulations, {name}!")
+        else:
+            print(f"'{user_input}' is wrong answer ;(. Correct answer was '{correct_number}'.")
+            print(f"\nLet's try again, {name}!\n")
+            break
+
+if __name__ == "__main__":
+    main()
